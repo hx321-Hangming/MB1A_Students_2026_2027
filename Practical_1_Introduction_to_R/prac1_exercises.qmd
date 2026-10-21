@@ -4,6 +4,11 @@ author: "Hangming Xu"
 editor: visual
 ---
 
+```{r}
+library(tidyverse)
+library(gt)
+```
+
 ## Rounding pi
 
 ```{r}
@@ -50,3 +55,64 @@ print(5 + TRUE)
 ```
 
 Boolean variables in R can behave like numbers.
+
+## Fortune()
+
+```{r}
+fortune()
+```
+
+## Vectors
+
+```{r}
+vector <- c(10, 19, 100)
+
+print(vector)
+```
+
+```{r}
+cell_ID_1 = 'CX1'
+cell_ID_2 = 'CX2'
+treated_1 = TRUE
+treated_2 = FALSE
+num_cells_before_1 = 5415
+num_cells_before_2 = 8123
+num_cells_after_1 = 1432
+num_cells_after_2 = 7543
+
+cell_ID <- c(cell_ID_1, cell_ID_2)
+
+print(cell_ID)
+print(cell_ID[1])
+```
+
+```{r}
+all_my_pets <- c("dog", "horse", "guinea pig", "chicken", "cat")
+
+print(m <- all_my_pets[4])
+```
+
+```{r}
+cell_colony_radius <- c(1, 3, 4, 2, 5, 8)
+cell_colony_radius <- cell_colony_radius*2
+
+print(cell_colony_radius)
+
+# Vectorisation - arithmetic operations can be applied to a whole vector at once.
+```
+
+```{r}
+ls <- c(1, 2, 3, 4, 66)
+
+(ls > 2)[1]
+```
+
+```{r}
+data_frame_mine <- tibble(
+  species = c('vampire bat', 'fruit bat', 'little brown bat'),
+  diet = c('blood', 'fruit', 'fruit'),
+  cuteness = c('no', 'amazing', 'meh')
+)
+
+gt(data_frame_mine)
+```
