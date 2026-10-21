@@ -119,5 +119,11 @@ gt(data_frame_mine)
 
 ```{r}
 weather <- read_csv("data/weather_data.csv")
-gt(weather)
+ggplot(weather, aes(
+  x = observation_time,
+  y = temperature_c
+)) + geom_line(colour='blue') +
+  xlab("Date") +
+  ylab("Temperature (C)")+
+  ggtitle('Temperature by date')
 ```

@@ -1,0 +1,30 @@
+---
+title: "ukhsa_data_analysis"
+author: "Hangming Xu"
+editor: visual
+---
+
+## UKHSA data analysis
+
+```{r}
+library(tidyverse)
+library(gt)
+```
+
+```{r}
+hepC <- read_csv('data/ukhsa-chart-download.csv')
+gt(head(hepC))
+```
+
+```{r}
+rhino = read_csv('data/ukhsa-chart-download-rhinovirus.csv')
+ggplot(rhino, aes(
+  x = date,
+  y = metric_value
+))+
+  geom_line(colour = 'red')+
+  xlab("Date")+
+  ylab("Rhinovirus testing positivity by week")+
+  ggtitle("Rhinovirus testing positivity by week by date")+
+  theme_classic()
+```
