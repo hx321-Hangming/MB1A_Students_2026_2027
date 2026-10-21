@@ -1,0 +1,52 @@
+---
+title: "prac1_exercises"
+author: "Hangming Xu"
+editor: visual
+---
+
+## Rounding pi
+
+```{r}
+round(3.1415926)
+round(3.1415926, digits = 2)
+```
+
+## Argument order
+
+```{r}
+print(seq(3, 10, 2))
+```
+
+## Variable type
+
+```{r}
+b = TRUE
+print(paste(class(b), b))
+
+c = 'variable'
+print(paste(class(c), c))
+
+```
+
+## Data with radiated cells
+
+```{r}
+cell_ID_1 = 'CX1'
+cell_ID_2 = 'CX2'
+treated_1 = TRUE
+treated_2 = FALSE
+num_cells_before_1 = 5415
+num_cells_before_2 = 8123
+num_cells_after_1 = 1432
+num_cells_after_2 = 7543
+```
+
+## Weird R behaviours
+
+```{r}
+print(TRUE + TRUE)
+print(TRUE + FALSE)
+print(5 + TRUE)
+```
+
+Boolean variables in R can behave like numbers.
