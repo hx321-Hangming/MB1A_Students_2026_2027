@@ -116,3 +116,8 @@ data_frame_mine <- tibble(
 
 gt(data_frame_mine)
 ```
+
+```{r}
+weather <- read_csv("data/weather_data.csv")
+gt(weather)
+```
