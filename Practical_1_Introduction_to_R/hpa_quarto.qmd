@@ -1,0 +1,20 @@
+---
+title: "hpa_quarto"
+author: "Hangming Xu"
+editor: visual
+---
+
+## Total number of genes with regionally elevated expression in the forebrain in three species
+
+Here, I calculate the total number of genes with regionally elevated expression in the forebrain, in three species (human, pig, mouse), based on data from <https://www.proteinatlas.org/humanproteome/brain>.
+
+```{r}
+gene_nums <- list(180, 83, 57, 110, 109, 31, 45, 114, 55, 60, 98, 47)
+sum <- 0
+
+for (x in gene_nums){
+  sum <- sum + x
+}
+
+print(sum)
+```
