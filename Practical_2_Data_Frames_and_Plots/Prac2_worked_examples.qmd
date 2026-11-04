@@ -129,3 +129,35 @@ autumn_data <- combined_bird_piv |>
 write_csv(spring_data, 'data/spring_data.csv')
 write_csv(autumn_data, 'data/autumn_data.csv')
 ```
+
+```{r}
+
+```
+
+```{r}
+longitudes <- spring_data |>
+  pull(Longitude)
+min_max <- c(max(longitudes), min(longitudes))
+
+latitudes <- spring_data |>
+  pull(Latitude)
+min_max2 <- c(max(latitudes), min(latitudes))
+
+borders <- c(min_max, min_max2)
+
+print(borders)
+
+```
+
+```{r}
+
+ggplot(spring_data, aes(x = Longitude, y = Latitude, color = Site, shape = Location_Type)) +
+  geom_point(size = 2) +
+  annotation_borders(linewidth = 0.2) +
+  coord_quickmap(xlim = c(borders[1] + 2, borders[2] - 2), ylim = c(borders[3] + 2, borders[4] - 2))+
+  theme_minimal()+
+  ggtitle('Pied Flycatcher Spring Migration Routes')+
+  xlab('Longitude')+
+  ylab('Latitude')+
+  geom_path(aes(group = Site))
+```
