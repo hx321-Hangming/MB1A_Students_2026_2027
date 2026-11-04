@@ -1,0 +1,58 @@
+---
+title: "Practical 2 worked example"
+editor: visual
+---
+
+## Practical 2 worked example
+
+```{r}
+library(gt)
+library(tidyverse)
+library(maps)
+
+breeding_sites <- read_csv('data/breeding_site_locations.csv')
+connectivity_data <- read_csv('data/migratory_connectivity_dataset.csv')
+
+gt(head(connectivity_data))
+glimpse(connectivity_data)
+colnames(connectivity_data)
+#colnames(breeding_sites)
+#glimpse(breeding_sites)
+```
+
+![](images/clipboard-1456296812.png){width="353"}
+
+```{r}
+
+breeding_selected <- breeding_sites |>
+  select(Site, Longitude, Latitude) |>
+  distinct() |>
+  rename(Breeding_longitude = Longitude, Breeding_latitude = Latitude)
+
+gt(breeding_selected)
+```
+
+```{r}
+
+bird_migration_selected <- connectivity_data |>
+  select(Site, winterLongitude, winterLatitude, pslon, pslat, iblon, iblat, awestlon, awestlat) |>
+  distinct() |>
+  rename(Winter_Longitude = winterLongitude, Winter_Latitude = winterLatitude, Stopover_Longitude = pslon, Stopover_Latitude = pslat, Iberian_Longitude = iblon, Iberian_Latitude = iblat, Westmost_Longitude = awestlon, Westmost_Latitude = awestlat)
+
+gt(head(bird_migration_selected))
+```
+
+```{r}
+bird_breeding_dartmoor <- breeding_selected |> filter(Site != 'Dartmoor' & Site != 'Moscow')
+print(bird_breeding_dartmoor)
+```
+
+```{r}
+# Fiter out spain data as no complete dataset
+
+bird_breeding_exc <- breeding_selected |> filter(Site != 'Spain')
+bird_migration_exc <- bird_migration_selected |> filter(Site != 'Spain')
+
+gt(bird_breeding_exc)
+gt(bird_migration_exc)
+```
