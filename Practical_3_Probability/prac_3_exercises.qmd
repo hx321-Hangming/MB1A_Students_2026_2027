@@ -1,0 +1,76 @@
+---
+title: "prac3_exercises"
+format: html
+editor: visual
+---
+
+## Exercises
+
+```{r}
+
+library(tidyverse)
+library(gt)
+
+for (i in seq_len(10)){
+  j <- i |>
+    sqrt() |>
+    round()
+  print(j)
+}
+```
+
+```{r}
+set.seed(42)
+```
+
+```{r}
+for (i in seq_len(20)){
+  print(i^3)
+}
+```
+
+```{r}
+for (i in seq_len(5)){
+  print(paste(sample(letters, 5, replace = TRUE), collapse=""))
+}
+```
+
+```{r}
+library(cowsay)
+species <- c("frog", "stegosaurus", "squirrel", "spider")
+
+for (spp in species) {
+  has_s <- startsWith(spp, 's')
+  say(paste('Do I start with an s?', has_s), spp)
+}
+```
+
+```{r}
+species <- c("monkey", "shark", "turkey", "snowman")
+species_df <- tibble()
+
+for (spp in species){
+  has_s <- startsWith(spp, 's')
+  current_row <- tibble(Species = spp, Starts_with_S = has_s)
+  species_df <- species_df |> bind_rows(current_row)
+}
+gt(species_df)
+```
+
+```{r}
+menu <- c("eggs", "bacon", "sausages", "toast")
+breakfast = tibble()
+
+for (i in seq_len(10)){
+  dish <- sample(menu, size = 1)
+  num <- sample(seq_len(5), size = 1)
+  current_dish <- tibble(Dish = dish, Number = num)
+  breakfast <- breakfast |>
+    bind_rows(current_dish)
+}
+
+gt(breakfast)
+```
+
+```{r}
+```
